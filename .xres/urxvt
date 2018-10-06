@@ -1,0 +1,8 @@
+URxvt.intensityStyles: false
+URxvt.depth:		32
+URxvt.background: [70]#000000
+URxvt.font: 		xft:DejaVuSansMono Nerd Font:size=14
+URxvt.scrollBar:	false
+URxvt.cursorColor: white
+
+URxvt.perl-ext-common: default,resize-font
