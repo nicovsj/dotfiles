@@ -9,6 +9,14 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'hzchirs/vim-material'
 Plug 'altercation/vim-colors-solarized'
+Plug 'skielbasa/vim-material-monokai'
+Plug 'vim-airline/vim-airline'
+Plug 'Valloric/YouCompleteMe'
+Plug 'jnurmine/Zenburn'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 
@@ -16,11 +24,12 @@ call plug#end()
 set incsearch
 set ignorecase
 
-"Colorscheme and syntax
+""Colorscheme and syntax
 set background=dark
-colorscheme material-theme
-syntax on 
-
+"set termguicolors
+colorscheme solarized
+let python_highlight_all=1
+syntax on
 " Mouse support
 " set mouse=a
 
@@ -45,3 +54,20 @@ map <C-l> <C-l>l
 set nobackup
 set nowritebackup
 set noswapfile
+
+""Vim-Airline settings
+let g:airline_powerline_fonts = 1
+
+""Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""YouCompleteMe setings
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
