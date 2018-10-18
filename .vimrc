@@ -17,6 +17,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mboughaba/i3config.vim'
+
 call plug#end()
 
 
@@ -27,7 +29,7 @@ set ignorecase
 ""Colorscheme and syntax
 set background=dark
 "set termguicolors
-colorscheme solarized
+colorscheme default
 let python_highlight_all=1
 syntax on
 " Mouse support
@@ -57,6 +59,8 @@ set noswapfile
 
 ""Vim-Airline settings
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 ""Syntastic settings
 set statusline+=%#warningmsg#
@@ -71,3 +75,6 @@ let g:syntastic_check_on_wq = 0
 ""YouCompleteMe setings
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+""RMarkdown
+autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<CR>
