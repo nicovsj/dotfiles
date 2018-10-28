@@ -94,8 +94,19 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
- alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias p="sudo pacman"
+alias zshconfig="vim ~/.zshrc"
+alias r="ranger"
+alias sr="sudo ranger"
+alias v="vim"
+alias sv="sudo vim"
+alias sdn="sudo shotdown now"
+alias bctl="bluetoothctl"
+alias mkd="mkdir -pv"
+
+alias ls='ls -hN --color=auto --group-directories-first'
+
+stty -ixon # Disable ctrl-s and ctrl-q
 
 nplayer () (nc -kluw 1 127.0.0.1 5555 > /tmp/mpd.fifo & trap "kill $!" EXIT; ncmpcpp)
 
