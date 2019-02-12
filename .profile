@@ -6,4 +6,5 @@ export BROWSER=/usr/bin/firefox
 export PATH="$PATH":"$HOME/.scripts"
 export READER=/usr/bin/zathura
 export TRUEBROWSER="firefox"
-export TERMINAL="urxvt""
+export TERMINAL="urxvt"
+export FILE="ranger"
