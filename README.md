@@ -2,8 +2,9 @@
 Aquí se encuentran algunos dotfiles asociadas a mi configuración de (actualmente) Manjaro Linux. Se pueden encontrar las dotfiles de los siguientes programas:
 
 + i3 (i3-gaps)
++ polybar
 + ranger
-+ ncmpcpp
++ ncmpcpp (mpd)
 + Xresources
 + zsh
 + vim
