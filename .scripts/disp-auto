@@ -1,0 +1,22 @@
+#!/bin/bash
+
+LOGFILE="/home/nicovsj/autodisplay.log"
+
+export DISPLAY=:0
+export XAUTHORITY="/home/nicovsj/.Xauthority"
+
+
+
+# Detect if the monitor is connected and, if so, the monitor's ID:
+conHdmi=$(xrandr | sed -n '/HDMI2 connected/p')
+# The useful part: check what the connection status is, and run some other commands
+
+
+if [ -n "$conHdmi" ]; then
+    xrandr --output eDP1 --off --output HDMI2 --auto
+else
+    xrandr --output eDP1 --auto --output HDMI2 --off
+fi
+
+pgrep -x dunst >/dev/null && killall dunst && setsid dunst &
+$HOME/.config/polybar/launch.sh

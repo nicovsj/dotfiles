@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+command -v "$1" >/dev/null || { notify-send "Package $1" "must be installed for this function." && exit 1 ; }

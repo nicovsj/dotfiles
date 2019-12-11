@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CACHE=$HOME/.cache/polybar-scripts/torrent
+color1="#ffa200"
+color2="#00a0d1"
+color3="#1ec900"
+
+sleep 3
+
+if pgrep -x transmission-da >/dev/null ;
+then
+   split=$(transmission-remote -l | grep % |
+					 sed "s/.*100%.*/C/g;
+								s/.*Stopped.*/B/g;
+								s/.*Idle.*/B/g;
+								s/.*%.*/A/g")
+   uncolored=$(echo "$(grep -o 'B' <<< $split | wc -l)   $(grep -o 'A' <<< $split | wc -l)   $(grep -o 'C' <<< $split | wc -l) " | tee $CACHE)
+	 echo "$uncolored" | sed -E "s/([0-9]+ .)  ([0-9]+ .)  ([0-9]+ .)/%{F$color1}\1%{F-}  %{F$color2}\2%{F-}  %{F$color3}\3%{F-}/"
+else
+				echo "%{F#44}$(cat $CACHE)%{F-}"
+fi

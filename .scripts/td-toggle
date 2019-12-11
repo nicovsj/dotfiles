@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+if pgrep -x transmission-da >/dev/null ;
+then
+   [ "$(printf "No\\nYes" | dmenu -i -p "Kill transmission-daemon?")" = "Yes" ] && killall transmission-da && notify-send "transmission-daemon killed."
+else
+  ifinstalled transmission-cli || exit
+	[ "$(printf "No\\nYes" | dmenu -i -p "Start transmission daemon?")" = "Yes" ] && transmission-daemon && notify-send "transmission-daemon started."
+fi
+

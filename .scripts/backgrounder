@@ -1,0 +1,10 @@
+#! /bin/bash
+
+image_path=$(readlink -f $1)
+
+betterlockscreen -u $image_path
+sudo sed -i "s,background-image = .*,background-image = \"$image_path\"," \
+				/etc/lightdm/lightdm-mini-greeter.conf
+
+wal -i $image_path
+

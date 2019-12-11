@@ -38,16 +38,19 @@ font-4 = Icons:size=11
 
 
 modules-left = i3 
-modules-right = temperature backlight filesystem pulseaudio wireless-network battery date        
+modules-right = backlight filesystem pulseaudio wireless-network battery date        
 
 wm-restack = i3
+
+; stop icons from overlapping the system tray
+fixed-center = true
 
 tray-position = right 
 tray-scale = 1.0
 ;tray-transparent = true
 tray-background = ${self.background}
 tray-maxsize = 64
-tray-padding = 3
+tray-padding = 10
 
 ; tray-offset-y = 0
 
@@ -87,7 +90,7 @@ font-2 = MaterialIcons-Regular:size=10
 font-3 = Wuncon\ Siji:pixelsize=11;1
 
 modules-left = mpd
-modules-right =   cpu memory
+modules-right = temperature cpu memory
 
 [module/backlight]
 type = internal/backlight
@@ -107,7 +110,7 @@ bar-indicator-font = 3
 bar-indicator-foreground = #ff
 bar-fill = ─
 bar-fill-font = 3
-bar-fill-foreground = #c9665e
+bar-fill-foreground = #ff
 bar-empty = ─
 bar-empty-font = 3
 bar-empty-foreground = #44
@@ -122,6 +125,9 @@ format-full = <ramp-capacity> <label-full>
 
 label-charging =  %percentage%% 
 label-discharging =  %percentage%%
+
+ramp-capacity-foreground = #38d728 
+
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = #f53c3c
 ramp-capacity-1 = 
@@ -239,6 +245,8 @@ format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
 label-disconnected =    not connected
 label-disconnected-foreground = #66
+
+ramp-signal-foreground = #24dff1
 
 ramp-signal-0 = 
 ramp-signal-1 = 
